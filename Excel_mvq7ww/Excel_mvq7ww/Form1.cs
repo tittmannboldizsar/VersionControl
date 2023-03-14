@@ -41,7 +41,7 @@ namespace Excel_mvq7ww
 
                 xlSheet = xlWB.ActiveSheet;
 
-                //CreateTable();
+                CreateTable();
 
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
@@ -101,7 +101,7 @@ namespace Excel_mvq7ww
                 values[counter, 5] = item.NumberOfRooms;
                 values[counter, 6] = item.FloorArea;
                 values[counter, 7] = item.Price;
-                values[counter, 8] = "";
+                values[counter, 8] = $"={GetCell(counter + 2,8)}/{GetCell(counter + 2, 7)}*1000000";
 
                 counter++;
 

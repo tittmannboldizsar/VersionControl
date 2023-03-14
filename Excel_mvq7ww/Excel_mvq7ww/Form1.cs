@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System;
+using System.Drawing;
 
 namespace Excel_mvq7ww
 {
@@ -57,10 +58,7 @@ namespace Excel_mvq7ww
             }
         }
 
-
-        private void CreateTable()
-        {
-            string[] headers = new string[] {
+        string[] headers = new string[] {
                  "Kód",
                  "Eladó",
                  "Oldal",
@@ -71,6 +69,8 @@ namespace Excel_mvq7ww
                  "Ár (mFt)",
                  "Négyzetméter ár (Ft/m2)"};
 
+        private void CreateTable()
+        {
             for (int i = 0; i < headers.Length; i++)
             {
                 xlSheet.Cells[1, i + 1] = headers[i];
@@ -110,7 +110,11 @@ namespace Excel_mvq7ww
             xlSheet.get_Range(
                         GetCell(2, 1),
                         GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
+
+            FormatTable();
         }
+
+
         private string GetCell(int x, int y)
         {
             string ExcelCoordinate = "";
@@ -126,6 +130,20 @@ namespace Excel_mvq7ww
             ExcelCoordinate += x.ToString();
 
             return ExcelCoordinate;
+        }
+
+
+
+        private void FormatTable()
+        {
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.Interior.Color = Color.LightBlue;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
         }
     }
 }

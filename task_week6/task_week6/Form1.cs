@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using task_week6.Abstractions;
 using task_week6.Entities;
 
 namespace task_week6
@@ -14,19 +15,26 @@ namespace task_week6
     public partial class Form1 : Form
     {
         List<Toy> _toys = new List<Toy>();
-        private ToyFactory _factory;
 
-        public ToyFactory Factory
+        private Toy _nextToy;
+
+        private IToyFactory _factory;
+
+        public IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value; }
+            set 
+            {
+                _factory = value;
+                DisplayNext();
+            }
         }
 
 
         public Form1()
         {
             InitializeComponent();
-            Factory = new ToyFactory();
+            Factory = new IToyFactory();
         }
 
         private void createTimer_Tick(object sender, EventArgs e)
@@ -53,6 +61,26 @@ namespace task_week6
                 mainPanel.Controls.Remove(oldestToy);
                 _toys.Remove(oldestToy);
             }
+        }
+
+        private void DisplayNext()
+        {
+            if (_nextToy != null)
+                Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = lblNext.Top + lblNext.Height + 20;
+            _nextToy.Left = lblNext.Left;
+            Controls.Add(_nextToy);
+        }
+
+        private void btnSelectBall_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
+        }
+
+        private void btnSelectCar_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
         }
     }
 }

@@ -8,3 +8,10 @@ C:\Users\mvq7ww\source\repos\task_week6\task_week6\obj\Debug\task_week6.csproj.G
 C:\Users\mvq7ww\source\repos\task_week6\task_week6\obj\Debug\task_week6.csproj.CoreCompileInputs.cache
 C:\Users\mvq7ww\source\repos\task_week6\task_week6\obj\Debug\task_week6.exe
 C:\Users\mvq7ww\source\repos\task_week6\task_week6\obj\Debug\task_week6.pdb
+C:\Users\mvq7ww\Source\Repos\VersionControl1\task_week6\task_week6\obj\Debug\task_week6.csproj.AssemblyReference.cache
+C:\Users\mvq7ww\Source\Repos\VersionControl1\task_week6\task_week6\obj\Debug\task_week6.Form1.resources
+C:\Users\mvq7ww\Source\Repos\VersionControl1\task_week6\task_week6\obj\Debug\task_week6.Properties.Resources.resources
+C:\Users\mvq7ww\Source\Repos\VersionControl1\task_week6\task_week6\obj\Debug\task_week6.csproj.GenerateResource.cache
+C:\Users\mvq7ww\Source\Repos\VersionControl1\task_week6\task_week6\obj\Debug\task_week6.csproj.CoreCompileInputs.cache
+C:\Users\mvq7ww\Source\Repos\VersionControl1\task_week6\task_week6\obj\Debug\task_week6.exe
+C:\Users\mvq7ww\Source\Repos\VersionControl1\task_week6\task_week6\obj\Debug\task_week6.pdb
